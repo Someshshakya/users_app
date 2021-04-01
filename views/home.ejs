@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 6px;
+          text-align: center;    
+        }
+        h1{
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <h1>  You are Welcome on Home Page</h1>
+    <hr>
+<button>
+    <a onclick="location.href='/submit'"> Add User</a>
+</button>
+<table style="width:100%">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+    <% for (let i = 0; i< data.length; i++){%>
+    <tr>
+            <td><%=data[i].first_name%></td>
+            <td><%=data[i].last_name%></td>
+            <td><%=data[i].email%></td>
+            <td>
+                <a style="text-decoration: none;" href='/view/<%= data[i].id%>'>View</a>
+                <a style="text-decoration: none;" href='/edit/<%= data[i].id%>'>Edit</a>
+               <a style="text-decoration: none;" href='/delete/<%= data[i].id%>'>Delete</a>
+            </td>
+        </tr>
+            <%}%>
+  </table>
+
+</body>
+</html>
